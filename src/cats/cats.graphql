@@ -15,7 +15,7 @@ type Mutation {
   deleteCat(id: Int): Cat
 }
 
-type Subscription {
+type Subscription { 
   catCreated: Cat
 }
 
@@ -26,10 +26,12 @@ type Owner {
   cats: [Cat!]
 }
 
+
 type Cat {
   id: Int
   name: String
   age: Int
+  isOld: Boolean
   owner: Owner
 }
 """

@@ -5,7 +5,8 @@ import { Cat } from "../graphql.schema";
 @Injectable()
 export class CatsService {
   private readonly cats: Array<Cat & { ownerId?: number }> = [
-    { id: 1, name: "Cat", age: 5, ownerId: 1 },
+    { id: 1, name: "White Cat", age: 6, ownerId: 1 },
+    { id: 2, name: "Black Cat", age: 4, ownerId: 2 },
   ];
 
   create(cat: Cat): Cat {
@@ -19,7 +20,11 @@ export class CatsService {
   }
 
   findOneById(id: number): Cat {
-    return this.cats.find((cat) => cat.id === id);
+    const cat = this.cats.find((cat) => cat.id === id);
+    if (cat) {
+      cat.isOld = cat.age > 5 ? true : false;
+    }
+    return cat;
   }
 
   delete(id: number) {

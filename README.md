@@ -11,25 +11,27 @@ When the application is running, you can go to [http://localhost:3000/graphql](h
 ### Usage
 
 ```
-// 查询全部
 query {
   cats { 
   	id,
     name,
-    age
+    age,
+    owner {
+      name,
+      age
+    }
   }
 }
 
-// 根据 ID 查询
 # query {
 #   cat(id:2) {
 #     id
 #     name,
-#     age
+#     age,
+#     isOld,
 #   }
 # }
 
-// 新增数据
 # mutation {
 #   createCat(createCatInput: { name:"haha", age: 9}) {
 #     age,
@@ -37,7 +39,6 @@ query {
 #   }
 # }
 
-// 删除数据
 # mutation {
 #   deleteCat(id:1) {
 #     id,
@@ -46,7 +47,6 @@ query {
 #   }
 # }
 
-// 更新数据
 # mutation {
 #   updateCat(updateCatInput:{ id:1, name:"qwe111", age:6}) {
 #     id,
