@@ -11,4 +11,8 @@ export class OwnersService {
   findOneById(id: number): Owner {
     return this.owners.find((owner) => owner.id === id);
   }
+
+  findAll(): Owner[] {
+    return this.owners;
+  }
 }

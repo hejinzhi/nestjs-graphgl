@@ -26,9 +26,12 @@ export class CatsResolver {
   ) {}
 
   @Query("cats")
-  @UseGuards(CatsGuard)
-  async getCats() {
-    return this.catsService.findAll();
+  // @UseGuards(CatsGuard)
+  async getCats(
+    @Args("filter")
+    args: UpdateCatDto
+  ) {
+    return this.catsService.findByFilter(args);
   }
 
   @Query("cat")
@@ -38,6 +41,14 @@ export class CatsResolver {
   ): Promise<Cat> {
     return this.catsService.findOneById(id);
   }
+
+  // @Query("cat")
+  // async findOneById(
+  //   @Args("queryCatDto")
+  //   queryCatDto: UpdateCatDto
+  // ): Promise<Cat> {
+  //   return this.catsService.findByFilter(queryCatDto);
+  // }
 
   @ResolveField()
   async owner(@Parent() cat: Cat & { ownerId: number }): Promise<Owner> {

@@ -1,5 +1,5 @@
 type Query {
-  cats: [Cat]
+  cats(filter: FindCatInput): [Cat]
   cat(id: ID!): Cat
 }
 
@@ -47,3 +47,10 @@ input UpdateCatInput {
   name: String
   age: Int
 }
+
+input FindCatInput {
+  id: Int
+  name: String
+  age: Int
+  ownerId: Int
+ }
