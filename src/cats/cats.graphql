@@ -8,6 +8,10 @@ type Mutation {
 }
 
 type Mutation {
+  updateCat(updateCatInput: UpdateCatInput): Cat
+}
+
+type Mutation {
   deleteCat(id: Int): Cat
 }
 
@@ -32,6 +36,12 @@ type Cat {
 Test comment
 """
 input CreateCatInput {
+  name: String
+  age: Int
+}
+
+input UpdateCatInput {
+  id: Int
   name: String
   age: Int
 }
