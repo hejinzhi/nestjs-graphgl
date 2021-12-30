@@ -27,9 +27,6 @@ export class CatsService {
 
   findOneById(id: number): Cat {
     const cat = this.cats.find((cat) => cat.id === id);
-    if (cat) {
-      cat.isOld = cat.age > 5 ? true : false;
-    }
     return cat;
   }
 

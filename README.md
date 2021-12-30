@@ -11,26 +11,36 @@ When the application is running, you can go to [http://localhost:3000/graphql](h
 ### Usage
 
 ```
-query {
-  cats { 
-  	id,
-    name,
-    age,
-    owner {
-      name,
-      age
-    }
-  }
-}
-
 # query {
-#   cat(id:2) {
-#     id
+#   cats { 
+#   	id,
 #     name,
 #     age,
-#     isOld,
+#     owner {
+#       name,
+#       age
+#     }
+#   }
+#   owners {
+#     id,
+#     name,
+#     cats {
+#       name,
+#       age
+#     }
 #   }
 # }
+
+query {
+  # cats(filter:{ ownerId:2}) {
+  #   id
+  #   name,
+  #   age,
+  # }
+  cats(filter:{}) {
+    name
+  }
+}
 
 # mutation {
 #   createCat(createCatInput: { name:"haha", age: 9}) {

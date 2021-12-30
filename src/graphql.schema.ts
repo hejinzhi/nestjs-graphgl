@@ -41,7 +41,6 @@ export class Cat {
   name?: Nullable<string>;
   age?: Nullable<number>;
   owner?: Nullable<Owner>;
-  isOld?: Nullable<boolean>;
 }
 
 type Nullable<T> = T | null;

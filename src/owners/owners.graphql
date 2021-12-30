@@ -15,6 +15,5 @@ type Cat {
   id: Int
   name: String
   age: Int
-  isOld: Boolean
   owner: Owner
 }
